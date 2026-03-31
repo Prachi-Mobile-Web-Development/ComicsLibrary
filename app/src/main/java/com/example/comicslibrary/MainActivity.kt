@@ -12,7 +12,15 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.comicslibrary.ui.theme.ComicsLibraryTheme
+import dagger.hilt.android.AndroidEntryPoint
 
+sealed class Destination(val route: String){
+    object Library: Destination("library")
+    object Collection: Destination("collection")
+    object CharacterDetail: Destination("characterDetail")
+
+}
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
